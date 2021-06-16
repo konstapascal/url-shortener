@@ -1,10 +1,22 @@
 import './styles/App.css';
 
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Links from './components/Links';
+import NotFound from './components/NotFound';
+
 function App() {
 	return (
-		<div className=' container bg-red-200'>
-			<h1 className='text-4xl'>url-shortener</h1>
-		</div>
+		<BrowserRouter>
+			<Navbar />
+			<Switch>
+				<Route exact path='/' component={Home} />
+				<Route exact path='/urls' component={Links} />
+				<Route component={NotFound} />
+			</Switch>
+		</BrowserRouter>
 	);
 }
 
