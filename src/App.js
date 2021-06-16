@@ -7,27 +7,28 @@ import NotFound from './components/NotFound';
 
 import { useEffect } from 'react';
 
+import moveToggle from './lib/moveToggle';
+
 function App() {
 	useEffect(() => {
-		const toggle = document.querySelector('#toggle');
-
-		if (
-			localStorage.theme === 'dark' ||
-			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-		) {
+		if (localStorage.theme === 'dark') {
 			document.documentElement.classList.add('dark');
-			localStorage.theme = 'dark';
-
-			toggle.classList.toggle('left-1');
-			toggle.classList.toggle('left-7');
-		} else {
-			document.documentElement.classList.remove('dark');
-			localStorage.theme = 'light';
+			moveToggle();
+			return;
 		}
+
+		if (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			document.documentElement.classList.add('dark');
+			moveToggle();
+			localStorage.theme = 'dark';
+			return;
+		}
+
+		localStorage.theme = 'light';
 	});
 
 	return (
-		<section className='bg-gray-50 dark:bg-[#272822] dark:text-gray-50 min-h-screen text-gray-900'>
+		<section className='bg-gray-50 dark:bg-[#272822] dark:text-gray-50 min-h-screen text-gray-900 transition-colors duration-500'>
 			<BrowserRouter>
 				<Navbar />
 				<Switch>
