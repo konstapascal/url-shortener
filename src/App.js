@@ -14,17 +14,12 @@ function App() {
 		if (localStorage.theme === 'dark') {
 			document.documentElement.classList.add('dark');
 			moveToggle();
-			return;
 		}
-
 		if (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			document.documentElement.classList.add('dark');
 			moveToggle();
 			localStorage.theme = 'dark';
-			return;
 		}
-
-		localStorage.theme = 'light';
 	});
 
 	return (
