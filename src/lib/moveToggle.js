@@ -1,6 +1,4 @@
 export default function moveToggle() {
 	const toggle = document.querySelector('#toggle');
-
-	toggle.classList.toggle('left-1');
-	toggle.classList.toggle('left-7');
+	toggle.classList.toggle('translate-x-6');
 }

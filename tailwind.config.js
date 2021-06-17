@@ -6,6 +6,21 @@ module.exports = {
 		container: {
 			center: true
 		},
-		extend: {}
+		extend: {
+			colors: {
+				light: {
+					100: '#F9FAFB',
+					200: '#F3F4F6'
+				},
+				dark: {
+					100: '#272822',
+					200: '#1E1F1C'
+				},
+				font: {
+					white: '#F9FAFB',
+					black: '#111827'
+				}
+			}
+		}
 	}
 };

@@ -28,7 +28,7 @@ function App() {
 	});
 
 	return (
-		<section className='bg-gray-50 dark:bg-[#272822] dark:text-gray-50 min-h-screen text-gray-900 transition-colors duration-500'>
+		<main className='bg-light-100 dark:bg-dark-100 dark:text-font-white text-font-black min-h-screen transition-colors duration-500'>
 			<BrowserRouter>
 				<Navbar />
 				<Switch>
@@ -37,7 +37,7 @@ function App() {
 					<Route component={NotFound} />
 				</Switch>
 			</BrowserRouter>
-		</section>
+		</main>
 	);
 }
 
