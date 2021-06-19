@@ -1,17 +1,21 @@
 function GeneratedLinkRow() {
 	return (
-		<div className=' md:flex-row last:mb-0 flex flex-col items-center mb-12 text-left'>
+		<div className=' md:flex-row last:mb-0 md:justify-between flex flex-col items-center mb-12 text-left'>
 			<div className=' break-all'>
 				<div className='mb-4'>
 					<h3 className=' text-xl font-semibold'>Full URL</h3>
 					<p className='dark:text-blue-400 hover:underline text-blue-500'>
-						https://classic.wowhead.com/guides/wow-classic-fire-mage-leveling-talent-build-1-60
+						<a href='https://classic.wowhead.com/guides/wow-classic-fire-mage-leveling-talent-build-1-60'>
+							https://classic.wowhead.com/guides/wow-classic-fire-mage-leveling-talent-build-1-60
+						</a>
 					</p>
 				</div>
 				<div>
 					<h3 className='text-xl font-semibold'>Shortened URL</h3>
 					<p className='dark:text-blue-400 hover:underline text-blue-500'>
-						sh.konstapascal.dev/fire
+						<a href='https://classic.wowhead.com/guides/wow-classic-fire-mage-leveling-talent-build-1-60'>
+							sh.konstapascal.dev/fire
+						</a>
 					</p>
 				</div>
 			</div>
