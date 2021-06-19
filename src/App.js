@@ -1,13 +1,13 @@
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import RedirectUrl from './components/RedirectUrl';
-import NotFound from './components/NotFound';
+// import NotFound from './components/NotFound';
 
 import { useEffect } from 'react';
 
 import moveToggle from './lib/moveToggle';
-import Footer from './components/Footer';
+
 import Application from './components/Application';
 
 function App() {
@@ -30,9 +30,8 @@ function App() {
 				<Switch>
 					<Route exact path='/' component={Application} />
 					<Route exact path='/:slug' component={RedirectUrl} />
-					<Route component={NotFound} />
+					<Redirect to={Application} />
 				</Switch>
-				<Footer />
 			</BrowserRouter>
 		</main>
 	);

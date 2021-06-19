@@ -11,7 +11,7 @@ function handleClick() {
 
 const Navbar = () => {
 	return (
-		<nav className='bg-light-200 dark:bg-dark-200 sticky transition-colors duration-500 shadow'>
+		<nav className='bg-light-200 dark:bg-dark-200 dark:border-gray-400 sticky transition-colors duration-500 border-b-2'>
 			<ul className='sm:px-16 flex items-center justify-between px-6 py-4'>
 				<li className=' dark:text-font-white text-font-black lg:text-3xl text-2xl font-semibold transition-colors duration-500'>
 					<Link to='/'>url-shortener</Link>
