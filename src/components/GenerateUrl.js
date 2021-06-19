@@ -1,7 +1,7 @@
 function GenerateUrl() {
 	return (
-		<div className='bg-light-200 dark:bg-dark-200 text-font-black dark:text-font-white lg:px-16 sm:px-8 rounded-t-md w-full px-4 pt-12 pb-20 text-center transition-colors duration-500'>
-			<h3 className=' lg:text-4xl mb-16 text-3xl font-semibold'>Generate Link</h3>
+		<div className='bg-light-200 dark:bg-dark-200 text-font-black dark:text-font-white lg:px-16 sm:px-8 rounded-t-md w-full px-4 py-16 text-center transition-colors duration-500'>
+			<h3 className=' lg:text-4xl mb-10 text-3xl font-semibold'>Generate Link</h3>
 
 			<label
 				class='block text-gray-500 transition-colors duration-500 dark:text-gray-300 text-md font-semibold mb-2'

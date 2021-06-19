@@ -1,13 +1,14 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
-import Home from './components/Home';
 import RedirectUrl from './components/RedirectUrl';
 import NotFound from './components/NotFound';
 
 import { useEffect } from 'react';
 
 import moveToggle from './lib/moveToggle';
+import Footer from './components/Footer';
+import Application from './components/Application';
 
 function App() {
 	useEffect(() => {
@@ -27,10 +28,11 @@ function App() {
 			<BrowserRouter>
 				<Navbar />
 				<Switch>
-					<Route exact path='/' component={Home} />
+					<Route exact path='/' component={Application} />
 					<Route exact path='/:slug' component={RedirectUrl} />
 					<Route component={NotFound} />
 				</Switch>
+				<Footer />
 			</BrowserRouter>
 		</main>
 	);
