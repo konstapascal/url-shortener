@@ -2,7 +2,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import Links from './components/Links';
+import RedirectUrl from './components/RedirectUrl';
 import NotFound from './components/NotFound';
 
 import { useEffect } from 'react';
@@ -28,7 +28,7 @@ function App() {
 				<Navbar />
 				<Switch>
 					<Route exact path='/' component={Home} />
-					<Route exact path='/urls' component={Links} />
+					<Route exact path='/:slug' component={RedirectUrl} />
 					<Route component={NotFound} />
 				</Switch>
 			</BrowserRouter>
