@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { RedirectLoading } from './RedirectLoading';
+// import { RedirectLoading } from './RedirectLoading';
 
 import NotFound from './NotFound';
 
