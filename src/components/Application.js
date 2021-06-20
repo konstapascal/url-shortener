@@ -2,7 +2,7 @@ import GenerateUrl from './GenerateUrl';
 import ListUrls from './ListUrls';
 import Footer from './Footer';
 
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 
 const Application = () => {
 	// const [urls, setUrls] = useState([]);
