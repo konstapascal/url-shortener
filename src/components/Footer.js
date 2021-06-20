@@ -2,7 +2,7 @@ function Footer() {
 	return (
 		<footer className=' bg-main-dark bg-light-200 dark:bg-dark-200 dark:border-gray-400 pt-16 pb-20 transition-colors duration-500 border-t-2'>
 			<div className=' container text-center text-gray-100'>
-				<p className='text-font-black dark:text-font-white text-xl font-semibold transition-colors duration-500'>
+				<p className='text-font-black dark:text-font-white text-xl transition-colors duration-500'>
 					Find me on any of these platforms.{' '}
 				</p>
 				<div className=' text-font-black dark:text-font-white flex justify-center my-6 text-2xl font-semibold transition-colors duration-500'>
