@@ -30,7 +30,7 @@ function App() {
 				<Switch>
 					<Route exact path='/' component={Application} />
 					<Route exact path='/:slug' component={RedirectUrl} />
-					<Redirect to={Application} />
+					<Redirect to={'/'} />
 				</Switch>
 			</BrowserRouter>
 		</main>

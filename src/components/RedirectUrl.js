@@ -1,24 +1,33 @@
 import { useEffect, useState } from 'react';
-// import { RedirectLoading } from './RedirectLoading';
+import { RedirectLoading } from './RedirectLoading';
 
 import NotFound from './NotFound';
+import slugExists from '../lib/slugExists';
+import redirectToUrl from '../lib/redirectToUrl';
 
 function RedirectUrl() {
-	const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		setIsLoading(true);
+		const pathname = window.location.pathname;
+		const slug = pathname.slice(1, pathname.length);
 
-		const location = window.location;
-		console.log(location.pathname);
+		if (slugExists(slug)) {
+			const localUrls = JSON.parse(localStorage.getItem('urls'));
+			const url = localUrls.filter(entry => {
+				return entry.slug === slug;
+			});
 
-		// location.assign('https://duckduckgo.com/');
+			return setTimeout(() => redirectToUrl(url[0].url), 36000000);
+		}
+
 		setIsLoading(false);
 	}, []);
 
 	return (
-		<div>{isLoading ? <p>Redirecting</p> : <NotFound />}</div>
-		// <RedirectLoading />
+		<>
+			<div>{isLoading ? <RedirectLoading /> : <NotFound />}</div>
+		</>
 	);
 }
 
