@@ -23,7 +23,7 @@ function ListUrls({ urls, setUrls, deleteUrl }) {
 							/>
 						);
 					})}
-					{urls.length !== 1 && (
+					{urls.length > 1 && (
 						<button
 							onClick={() => deleteAllUrls()}
 							className=' text-font-white dark:bg-red-700 px-4 py-2 font-medium transition-colors duration-500 bg-red-600 rounded-md'

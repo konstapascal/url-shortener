@@ -18,7 +18,7 @@ function RedirectUrl() {
 				return entry.slug === slug;
 			});
 
-			return setTimeout(() => redirectToUrl(url[0].url), 1000);
+			return redirectToUrl(url[0].url, 1000);
 		}
 
 		setIsLoading(false);

@@ -1,3 +1,3 @@
-export default function redirectToUrl(url) {
-	return window.location.replace(url);
+export default function redirectToUrl(url, delay = 0) {
+	return setTimeout(() => window.location.replace(url), delay);
 }
