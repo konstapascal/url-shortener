@@ -3,13 +3,12 @@ import ListUrls from './ListUrls';
 import Footer from './Footer';
 
 import { useEffect, useState } from 'react';
-import urlExists from '../lib/urlExists';
-import slugExists from '../lib/slugExists';
-import isUrl from '../lib/isUrl';
+import isValidUrl from '../lib/isValidUrl';
+import isValidSlug from '../lib/isValidSlug';
 
 const Application = () => {
 	const [urls, setUrls] = useState([]);
-	const [message, setMessage] = useState(null);
+	const [message, setMessage] = useState(undefined);
 
 	useEffect(() => {
 		if (!localStorage.getItem('urls')) localStorage.setItem('urls', JSON.stringify([]));
@@ -23,24 +22,23 @@ const Application = () => {
 		const url = document.querySelector('#url').value;
 		const slug = document.querySelector('#slug').value;
 
-		// if fields are empty
+		const isValidUrlReturnValue = isValidUrl(url);
+		const isValidSlugReturnValue = isValidSlug(slug);
+
+		// check if both inputs are empty
 		if (url === '' && slug === '')
 			return setMessage({ msg: 'Both fields are required!', type: 'warning' });
 
-		// check if url empty or exists
-		if (!isUrl(url)) return setMessage({ msg: 'Not a valid URL!', type: 'warning' });
-		if (urlExists(url)) return setMessage({ msg: 'This URL already exists!', type: 'warning' });
-
-		// check if slug is empty or exists
-		if (slug === '') return setMessage({ msg: 'The slug cannot be empty!', type: 'warning' });
-		if (slugExists(slug))
-			return setMessage({ msg: 'An URL with this slug already exists!', type: 'warning' });
+		// check for valid url and slug input
+		if (isValidUrlReturnValue !== true) return setMessage(isValidUrlReturnValue);
+		if (isValidSlugReturnValue !== true) return setMessage(isValidSlugReturnValue);
 
 		const previousLocalStorageUrls = JSON.parse(localStorage.getItem('urls'));
 
 		localStorage.setItem('urls', JSON.stringify([...previousLocalStorageUrls, { url, slug }]));
 		setUrls([...urls, { url, slug }]);
 
+		// set success message if everything passes
 		setMessage({ msg: 'URL has been created successfully!', type: 'success' });
 	}
 
