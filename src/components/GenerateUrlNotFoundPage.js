@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import isUrl from '../lib/isUrl';
-import slugExists from '../lib/slugExists';
-import urlExists from '../lib/urlExists';
+import isValidSlug from '../lib/isValidSlug';
+import isValidUrl from '../lib/isValidUrl';
 import { SuccessBox, WarningBox } from './MessageBox';
 
 export const GenerateUrlNotFoundPage = () => {
@@ -11,14 +10,16 @@ export const GenerateUrlNotFoundPage = () => {
 		const url = document.querySelector('#url').value;
 		const slug = document.querySelector('#slug').value;
 
-		// check if url valid or exists
-		if (!isUrl(url)) return setMessage({ msg: 'Not a valid URL!', type: 'warning' });
-		if (urlExists(url)) return setMessage({ msg: 'This URL already exists!', type: 'warning' });
+		const isValidUrlReturnValue = isValidUrl(url);
+		const isValidSlugReturnValue = isValidSlug(slug);
 
-		// check if slug is empty or exists
-		if (slug === '') return setMessage({ msg: 'The slug cannot be empty!', type: 'warning' });
-		if (slugExists(slug))
-			return setMessage({ msg: 'An URL with this slug already exists!', type: 'warning' });
+		// check if both inputs are empty
+		if (url === '' && slug === '')
+			return setMessage({ msg: 'Both fields are required!', type: 'warning' });
+
+		// check for valid url and slug input
+		if (isValidUrlReturnValue !== true) return setMessage(isValidUrlReturnValue);
+		if (isValidSlugReturnValue !== true) return setMessage(isValidSlugReturnValue);
 
 		const previousLocalStorageUrls = JSON.parse(localStorage.getItem('urls'));
 
