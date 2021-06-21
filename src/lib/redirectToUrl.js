@@ -1,3 +1,7 @@
 export default function redirectToUrl(url, delay = 0) {
-	return setTimeout(() => window.location.replace(url), delay);
+	return setTimeout(() => {
+		url.startsWith('http')
+			? window.location.replace(url)
+			: window.location.replace(`http://${url}`);
+	}, delay);
 }
