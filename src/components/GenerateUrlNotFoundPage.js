@@ -1,11 +1,30 @@
+import { useState } from 'react';
+import isUrl from '../lib/isUrl';
+import slugExists from '../lib/slugExists';
+import urlExists from '../lib/urlExists';
+import { SuccessBox, WarningBox } from './MessageBox';
+
 export const GenerateUrlNotFoundPage = () => {
+	const [message, setMessage] = useState(null);
+
 	function saveUrl() {
 		const url = document.querySelector('#url').value;
 		const slug = document.querySelector('#slug').value;
 
+		// check if url valid or exists
+		if (!isUrl(url)) return setMessage({ msg: 'Not a valid URL!', type: 'warning' });
+		if (urlExists(url)) return setMessage({ msg: 'This URL already exists!', type: 'warning' });
+
+		// check if slug is empty or exists
+		if (slug === '') return setMessage({ msg: 'The slug cannot be empty!', type: 'warning' });
+		if (slugExists(slug))
+			return setMessage({ msg: 'An URL with this slug already exists!', type: 'warning' });
+
 		const previousLocalStorageUrls = JSON.parse(localStorage.getItem('urls'));
 
 		localStorage.setItem('urls', JSON.stringify([...previousLocalStorageUrls, { url, slug }]));
+
+		setMessage({ msg: 'URL has been created successfully!', type: 'success' });
 	}
 
 	return (
@@ -51,6 +70,11 @@ export const GenerateUrlNotFoundPage = () => {
 				type='button'>
 				Shorten URL
 			</button>
+			{message && message.type === 'success' ? (
+				<SuccessBox message={message} />
+			) : (
+				<WarningBox message={message} />
+			)}
 		</div>
 	);
 };
