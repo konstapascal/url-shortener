@@ -4,7 +4,7 @@ import isValidUrl from '../lib/isValidUrl';
 import { SuccessBox, WarningBox } from './MessageBox';
 
 export const GenerateUrlNotFoundPage = () => {
-	const [message, setMessage] = useState(null);
+	const [message, setMessage] = useState(undefined);
 
 	function saveUrl() {
 		const url = document.querySelector('#url').value;
