@@ -8,8 +8,8 @@ function ListUrls({ urls, setUrls, deleteUrl }) {
 	}
 
 	return (
-		<div className='bg-light-200 dark:bg-dark-200 text-font-black rounded-b-md dark:text-font-white sm:px-8 lg:px-16 w-full px-4 pb-20 text-center transition-colors duration-500'>
-			<h3 className='lg:text-4xl mb-16 text-3xl font-semibold'>Generated Links List</h3>
+		<div className='bg-light-200 dark:bg-dark-200 text-font-black rounded-b-md dark:text-font-white sm:px-8 lg:px-16 w-full px-4 pb-16 text-center transition-colors duration-500'>
+			<h3 className='lg:text-4xl mb-14 mt-12 text-3xl font-semibold'>Generated Links List</h3>
 
 			{urls.length !== 0 ? (
 				<>

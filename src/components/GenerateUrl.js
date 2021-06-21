@@ -2,7 +2,7 @@ import { SuccessBox, WarningBox } from './MessageBox';
 
 function GenerateUrl({ saveUrl, message }) {
 	return (
-		<div className='bg-light-200 dark:bg-dark-200 text-font-black dark:text-font-white lg:px-16 sm:px-8 rounded-t-md w-full px-4 py-16 text-center transition-colors duration-500'>
+		<div className='bg-light-200 dark:bg-dark-200 text-font-black dark:text-font-white lg:px-16 sm:px-8 rounded-t-md w-full px-4 pt-16 text-center transition-colors duration-500'>
 			<h3 className=' lg:text-4xl text-3xl font-semibold'>Generate Link</h3>
 			<div className='mt-10'>
 				<p className='mb-2'>
