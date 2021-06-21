@@ -23,7 +23,11 @@ const Application = () => {
 		const url = document.querySelector('#url').value;
 		const slug = document.querySelector('#slug').value;
 
-		// check if url valid or exists
+		// if fields are empty
+		if (url === '' && slug === '')
+			return setMessage({ msg: 'Both fields are required!', type: 'warning' });
+
+		// check if url empty or exists
 		if (!isUrl(url)) return setMessage({ msg: 'Not a valid URL!', type: 'warning' });
 		if (urlExists(url)) return setMessage({ msg: 'This URL already exists!', type: 'warning' });
 
