@@ -5,7 +5,6 @@ function GeneratedLinkRow({ url, slug, deleteUrl }) {
 				<div className='mb-4'>
 					<h3 className=' text-xl font-semibold'>Full URL</h3>
 					<p className='dark:text-blue-400 hover:underline text-blue-500'>
-						<a href={`//${url}`}>{url}</a>
 						{url.startsWith('http') ? (
 							<a href={url}>{url}</a>
 						) : (
