@@ -21,11 +21,11 @@ function GeneratedLinkRow({ url, slug, deleteUrl }) {
 			</div>
 
 			<div className='md:ml-12 md:mt-0 md:flex-col flex self-center mt-8'>
-				<a
+				{/* <a
 					className='text-font-white dark:bg-blue-600 md:mr-0 md:mb-1 px-4 py-2 mr-1 font-medium text-center transition-colors duration-500 bg-blue-500 rounded-md shadow-md'
 					href={url}>
 					Open
-				</a>
+				</a> */}
 				<button
 					onClick={() => deleteUrl(slug)}
 					className=' text-font-white dark:bg-red-700 md:ml-0 md:mt-1 px-4 py-2 ml-1 font-medium transition-colors duration-500 bg-red-600 rounded-md shadow-md'
