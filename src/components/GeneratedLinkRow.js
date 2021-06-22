@@ -15,7 +15,7 @@ function GeneratedLinkRow({ url, slug, deleteUrl }) {
 				<div>
 					<h3 className='text-xl font-semibold'>Shortened URL</h3>
 					<p className='dark:text-blue-400 hover:underline text-blue-500'>
-						<a href={`/${slug}`}>{`${window.location.href}${slug}`}</a>
+						<a href={`/${slug}`}>{`${window.location.hostname}/${slug}`}</a>
 					</p>
 				</div>
 			</div>
