@@ -12,7 +12,7 @@ import { saveAs } from 'file-saver';
 const Application = () => {
 	const [urls, setUrls] = useState([]);
 	const [message, setMessage] = useState(undefined);
-	// const [importMessage, setImportMessage] = useState(undefined);
+	const [importMessage, setImportMessage] = useState(undefined);
 
 	useEffect(() => {
 		if (!localStorage.getItem('urls')) localStorage.setItem('urls', JSON.stringify([]));
@@ -72,9 +72,21 @@ const Application = () => {
 		saveAs(blob, 'url-shortener-export.txt');
 	}
 
-	function importUrls() {
-		alert('Importing URLs not implemented yet!');
-		// setImportMessage({ msg: 'URLs have been imported successfully!', type: 'success' });
+	function importUrls(e) {
+		const file = e.target.files[0];
+		const reader = new FileReader();
+
+		reader.onload = e => {
+			console.log(e);
+			const content = e.target.result;
+
+			localStorage.setItem('urls', content);
+			setUrls(JSON.parse(content));
+
+			setImportMessage({ msg: 'URLs have been imported successfully!', type: 'success' });
+		};
+
+		reader.readAsText(file, 'UTF-8');
 	}
 
 	return (
@@ -84,7 +96,7 @@ const Application = () => {
 					saveUrl={saveUrl}
 					importUrls={importUrls}
 					message={message}
-					// importMessage={importMessage}
+					importMessage={importMessage}
 				/>
 				<ListUrls
 					urls={urls}
