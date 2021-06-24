@@ -63,6 +63,7 @@ function GenerateUrl({ saveUrl, importUrls, message, importMessage }) {
 				<input
 					id='fileInput'
 					className='hidden'
+					onClick={e => (e.target.value = '')}
 					onChange={e => importUrls(e)}
 					type='file'
 					accept={'text/plain'}

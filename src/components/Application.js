@@ -72,25 +72,18 @@ const Application = () => {
 		saveAs(blob, 'url-shortener-export.txt');
 	}
 
-	function importUrls(e) {
+	async function importUrls(e) {
 		const file = e.target.files[0];
-		const reader = new FileReader();
 
-		reader.addEventListener('load', e => {
-			localStorage.setItem('urls', e.target.result);
-			setUrls(JSON.parse(e.target.result));
+		if (file === undefined)
+			return setImportMessage({ msg: 'No file selected or unrecognized!', type: 'error' });
 
-			setImportMessage({ msg: 'URLs have been imported successfully!', type: 'success' });
-		});
+		const content = await file.text();
 
-		try {
-			reader.readAsText(file);
-		} catch {
-			setImportMessage({
-				msg: 'URLs could not be imported, try again!',
-				type: 'error'
-			});
-		}
+		localStorage.setItem('urls', content);
+		setUrls(JSON.parse(content));
+
+		setImportMessage({ msg: 'URLs have been imported successfully!', type: 'success' });
 	}
 
 	return (
