@@ -76,17 +76,21 @@ const Application = () => {
 		const file = e.target.files[0];
 		const reader = new FileReader();
 
-		reader.onload = e => {
-			console.log(e);
-			const content = e.target.result;
-
-			localStorage.setItem('urls', content);
-			setUrls(JSON.parse(content));
+		reader.addEventListener('load', e => {
+			localStorage.setItem('urls', e.target.result);
+			setUrls(JSON.parse(e.target.result));
 
 			setImportMessage({ msg: 'URLs have been imported successfully!', type: 'success' });
-		};
+		});
 
-		reader.readAsText(file, 'UTF-8');
+		try {
+			reader.readAsText(file);
+		} catch {
+			setImportMessage({
+				msg: 'URLs could not be imported, try again!',
+				type: 'error'
+			});
+		}
 	}
 
 	return (
