@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import isValidSlug from '../lib/isValidSlug';
 import isValidUrl from '../lib/isValidUrl';
-import { SuccessBox, WarningBox } from './MessageBox';
+import { SuccessBox, ErrorBox } from './MessageBox';
 
 export const GenerateUrlNotFoundPage = () => {
 	const [message, setMessage] = useState(undefined);
@@ -74,7 +74,7 @@ export const GenerateUrlNotFoundPage = () => {
 			{message && message.type === 'success' ? (
 				<SuccessBox message={message} />
 			) : (
-				<WarningBox message={message} />
+				<ErrorBox message={message} />
 			)}
 		</div>
 	);

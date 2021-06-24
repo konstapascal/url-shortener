@@ -1,18 +1,19 @@
-import { SuccessBox, WarningBox } from './MessageBox';
+import { SuccessBox, ErrorBox } from './MessageBox';
 
 function GenerateUrl({ saveUrl, message }) {
 	return (
 		<div className='bg-light-200 dark:bg-dark-200 text-font-black dark:text-font-white lg:px-16 sm:px-8 rounded-t-md w-full px-4 pt-16 text-center transition-colors duration-500'>
-			<h3 className=' lg:text-4xl text-3xl font-semibold'>Generate Link</h3>
-			<div className='mt-10'>
-				<p className='mb-2'>
+			<h3 className=' lg:text-4xl text-3xl font-semibold'>Generate URLs</h3>
+			<div className=' mt-10 mb-6'>
+				<p className=''>
 					Provide an <span className='font-bold'>URL</span> and a{' '}
 					<span className='font-bold'>slug</span> to create a shortened version with the
 					following form:
 				</p>
-				<p className='text-lg font-semibold'>https://sh.konstapascal.dev/[slug]</p>
+				<p className='my-4 text-xl font-semibold'>https://sh.konstapascal.dev/[slug]</p>
 			</div>
-			<div className='mt-10 mb-12'>
+
+			<div className='my-10'>
 				<label
 					className='dark:text-gray-300 text-md block mb-2 font-semibold text-gray-500 transition-colors duration-500'
 					htmlFor='url'>
@@ -37,15 +38,27 @@ function GenerateUrl({ saveUrl, message }) {
 			</div>
 			<button
 				onClick={saveUrl}
-				className='text-font-white dark:bg-blue-600 transform-gpu active:scale-95 block px-4 py-2 mx-auto font-medium transition-colors duration-500 bg-blue-500 rounded-md shadow-md'
+				className='text-font-white dark:bg-blue-600 transform-gpu block px-4 py-2 mx-auto font-medium transition-colors duration-500 bg-blue-500 rounded-md shadow-md'
 				type='button'>
 				Shorten URL
 			</button>
+
 			{message && message.type === 'success' ? (
 				<SuccessBox message={message} />
 			) : (
-				<WarningBox message={message} />
+				<ErrorBox message={message} />
 			)}
+
+			<p className='mt-12 mb-8'>
+				You may also <span className='font-bold'>import URLs</span> that you have generated and
+				exported before:
+			</p>
+			<button
+				// onClick={exportUrls}
+				className='text-font-white dark:bg-blue-600 px-4 py-2 font-medium transition-colors duration-500 bg-blue-500 rounded-md shadow-md'
+				type='button'>
+				Import URLs
+			</button>
 		</div>
 	);
 }

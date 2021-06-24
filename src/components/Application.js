@@ -5,6 +5,7 @@ import Footer from './Footer';
 import { useEffect, useState } from 'react';
 import isValidUrl from '../lib/isValidUrl';
 import isValidSlug from '../lib/isValidSlug';
+import clearInputValues from '../lib/clearInputValues';
 
 const Application = () => {
 	const [urls, setUrls] = useState([]);
@@ -19,6 +20,9 @@ const Application = () => {
 	}, []);
 
 	function saveUrl() {
+		const urlField = document.querySelector('#url');
+		const slugField = document.querySelector('#slug');
+
 		const url = document.querySelector('#url').value;
 		const slug = document.querySelector('#slug').value;
 
@@ -38,8 +42,9 @@ const Application = () => {
 		localStorage.setItem('urls', JSON.stringify([...previousLocalStorageUrls, { url, slug }]));
 		setUrls([...urls, { url, slug }]);
 
-		// set success message if everything passes
+		// set success message, clear fields, if all passes
 		setMessage({ msg: 'URL has been created successfully!', type: 'success' });
+		clearInputValues(urlField, slugField);
 	}
 
 	function deleteUrl(slug) {
