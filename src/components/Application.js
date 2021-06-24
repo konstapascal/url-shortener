@@ -7,9 +7,12 @@ import isValidUrl from '../lib/isValidUrl';
 import isValidSlug from '../lib/isValidSlug';
 import clearInputValues from '../lib/clearInputValues';
 
+import { saveAs } from 'file-saver';
+
 const Application = () => {
 	const [urls, setUrls] = useState([]);
 	const [message, setMessage] = useState(undefined);
+	// const [importMessage, setImportMessage] = useState(undefined);
 
 	useEffect(() => {
 		if (!localStorage.getItem('urls')) localStorage.setItem('urls', JSON.stringify([]));
@@ -57,11 +60,38 @@ const Application = () => {
 		setUrls(filteredUrls);
 	}
 
+	function deleteAllUrls() {
+		localStorage.setItem('urls', JSON.stringify([]));
+		setUrls([]);
+	}
+
+	function exportUrls() {
+		const data = localStorage.getItem('urls');
+
+		const blob = new Blob([data], { type: 'text/plain;charset=utf-8' });
+		saveAs(blob, 'url-shortener-export.txt');
+	}
+
+	function importUrls() {
+		alert('Importing URLs not implemented yet!');
+		// setImportMessage({ msg: 'URLs have been imported successfully!', type: 'success' });
+	}
+
 	return (
 		<>
 			<div className=' dark:border-gray-400 container flex flex-col max-w-4xl mx-auto my-16 transition-colors duration-500 border-2 rounded-md shadow-lg'>
-				<GenerateUrl saveUrl={saveUrl} message={message} />
-				<ListUrls urls={urls} setUrls={setUrls} deleteUrl={deleteUrl} />
+				<GenerateUrl
+					saveUrl={saveUrl}
+					importUrls={importUrls}
+					message={message}
+					// importMessage={importMessage}
+				/>
+				<ListUrls
+					urls={urls}
+					deleteUrl={deleteUrl}
+					deleteAllUrls={deleteAllUrls}
+					exportUrls={exportUrls}
+				/>
 			</div>
 			<Footer />
 		</>

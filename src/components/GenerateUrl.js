@@ -1,6 +1,6 @@
 import { SuccessBox, ErrorBox } from './MessageBox';
 
-function GenerateUrl({ saveUrl, message }) {
+function GenerateUrl({ saveUrl, importUrls, message, importMessage }) {
 	return (
 		<div className='bg-light-200 dark:bg-dark-200 text-font-black dark:text-font-white lg:px-16 sm:px-8 rounded-t-md w-full px-4 pt-16 text-center transition-colors duration-500'>
 			<h3 className=' lg:text-4xl text-3xl font-semibold'>Generate URLs</h3>
@@ -35,13 +35,13 @@ function GenerateUrl({ saveUrl, message }) {
 					id='slug'
 					type='text'
 				/>
+				<button
+					onClick={saveUrl}
+					className='text-font-white dark:bg-blue-600 transform-gpu block px-4 py-2 mx-auto mt-8 font-medium transition-colors duration-500 bg-blue-500 rounded-md shadow-md'
+					type='button'>
+					Shorten URL
+				</button>
 			</div>
-			<button
-				onClick={saveUrl}
-				className='text-font-white dark:bg-blue-600 transform-gpu block px-4 py-2 mx-auto font-medium transition-colors duration-500 bg-blue-500 rounded-md shadow-md'
-				type='button'>
-				Shorten URL
-			</button>
 
 			{message && message.type === 'success' ? (
 				<SuccessBox message={message} />
@@ -49,16 +49,24 @@ function GenerateUrl({ saveUrl, message }) {
 				<ErrorBox message={message} />
 			)}
 
-			<p className='mt-12 mb-8'>
-				You may also <span className='font-bold'>import URLs</span> that you have generated and
-				exported before:
-			</p>
-			<button
-				// onClick={exportUrls}
-				className='text-font-white dark:bg-blue-600 px-4 py-2 font-medium transition-colors duration-500 bg-blue-500 rounded-md shadow-md'
-				type='button'>
-				Import URLs
-			</button>
+			<div className='my-12'>
+				<p className='mb-8'>
+					You may also <span className='font-bold'>import URLs</span> generated and exported
+					from before:
+				</p>
+				<button
+					onClick={() => importUrls()}
+					className='text-font-white dark:bg-blue-600 px-4 py-2 font-medium transition-colors duration-500 bg-blue-500 rounded-md shadow-md'
+					type='button'>
+					Import URLs
+				</button>
+			</div>
+
+			{importMessage && importMessage.type === 'success' ? (
+				<SuccessBox message={importMessage} />
+			) : (
+				<ErrorBox message={importMessage} />
+			)}
 		</div>
 	);
 }

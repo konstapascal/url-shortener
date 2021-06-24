@@ -1,8 +1,8 @@
 function GeneratedLinkRow({ url, slug, deleteUrl }) {
 	return (
-		<div className=' md:flex-row last:mb-0 md:justify-between md:items-center flex flex-col mb-12 text-left'>
+		<div className=' md:flex-row last:mb-0 md:justify-between md:items-center md:mb-10 lg:mb-10 flex flex-col mb-8 text-left'>
 			<div className=' break-all'>
-				<div className='mb-4'>
+				<div className='mb-3'>
 					<h3 className=' text-xl font-semibold'>Full URL</h3>
 					<p className='dark:text-blue-400 hover:underline text-blue-500'>
 						{url.startsWith('http') ? (
@@ -20,7 +20,7 @@ function GeneratedLinkRow({ url, slug, deleteUrl }) {
 				</div>
 			</div>
 
-			<div className='md:ml-12 md:mt-0 md:flex-col flex self-center mt-8'>
+			<div className='md:ml-12 md:mt-0 md:flex-col flex self-center mt-4'>
 				{/* <a
 					className='text-font-white dark:bg-blue-600 md:mr-0 md:mb-1 px-4 py-2 mr-1 font-medium text-center transition-colors duration-500 bg-blue-500 rounded-md shadow-md'
 					href={url}>
