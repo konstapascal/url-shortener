@@ -9,6 +9,7 @@ import clearInputValues from '../lib/clearInputValues';
 
 import { saveAs } from 'file-saver';
 import isValidFile from '../lib/isValidFile';
+import toggleModal from '../lib/toggleModal';
 
 const Application = () => {
 	const [urls, setUrls] = useState([]);
@@ -64,6 +65,8 @@ const Application = () => {
 	function deleteAllUrls() {
 		localStorage.setItem('urls', JSON.stringify([]));
 		setUrls([]);
+
+		toggleModal();
 	}
 
 	function exportUrls() {
