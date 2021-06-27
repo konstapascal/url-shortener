@@ -4,7 +4,7 @@ function Modal({ deleteAllUrls }) {
 	return (
 		<div className='modal fixed inset-0 hidden'>
 			<div className='modal-bg text-font-black dark:text-font-white flex items-center justify-center h-full transition-colors duration-500'>
-				<div className='modal-content bg-light-200 dark:bg-dark-200 -mt-52 sm:w-auto sm:py-8 sm:px-12 lg:px-24 w-full px-4 py-6 border rounded-md'>
+				<div className='modal-content bg-light-200 dark:bg-dark-200 -mt-52 sm:w-auto sm:py-8 sm:px-12 lg:px-24 w-11/12 px-4 py-6 border rounded-md'>
 					<div className='modal-text mb-6'>
 						<h3 className='lg:text-4xl mb-2 text-3xl font-semibold'>Delete All URLs</h3>
 						<p>Are you sure you want to delete all URLs?</p>
