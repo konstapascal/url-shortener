@@ -1,12 +1,16 @@
-export default function isValidFile(fileContents) {
-	const isArray = Array.isArray(fileContents);
+import isUrl from './isUrl';
+
+export default function isValidFile(fileContent) {
+	const isArray = Array.isArray(fileContent);
 	if (!isArray) return false;
 
-	const isArrayOfValidObjs = fileContents.every(entry => {
-		const isEntryObj = !!entry && entry.constructor === Object;
-		const isEntryObjValid = entry.url && entry.slug;
+	const isArrayOfValidObjs = fileContent.every(obj => {
+		const isObjValid = !!obj && obj.constructor === Object;
+		const areObjKeysValid = 'url' in obj && 'slug' in obj;
+		const isUrlValid = isUrl(obj.url);
+		const isSlugValid = obj.slug !== '' && !obj.slug.includes(' ');
 
-		return isEntryObj && isEntryObjValid;
+		return isObjValid && areObjKeysValid && isUrlValid && isSlugValid;
 	});
 
 	return isArray && isArrayOfValidObjs;
