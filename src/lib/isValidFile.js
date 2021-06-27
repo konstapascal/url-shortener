@@ -13,5 +13,5 @@ export default function isValidFile(fileContent) {
 		return isObjValid && areObjKeysValid && isUrlValid && isSlugValid;
 	});
 
-	return isArray && isArrayOfValidObjs;
+	return isArrayOfValidObjs;
 }
