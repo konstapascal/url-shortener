@@ -60,6 +60,7 @@ function GenerateUrl({ saveUrl, importUrls, message, importMessage }) {
 					type='button'>
 					Import URLs
 				</button>
+				{/* hidden element, only functionality needed */}
 				<input
 					id='fileInput'
 					className='hidden'

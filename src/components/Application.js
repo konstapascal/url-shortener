@@ -8,6 +8,7 @@ import isValidSlug from '../lib/isValidSlug';
 import clearInputValues from '../lib/clearInputValues';
 
 import { saveAs } from 'file-saver';
+import isValidFile from '../lib/isValidFile';
 
 const Application = () => {
 	const [urls, setUrls] = useState([]);
@@ -75,13 +76,17 @@ const Application = () => {
 	async function importUrls(e) {
 		const file = e.target.files[0];
 
-		if (file === undefined)
-			return setImportMessage({ msg: 'No file selected or unrecognized!', type: 'error' });
-
 		const content = await file.text();
+		const parsedContent = JSON.parse(content);
+
+		if (!isValidFile(parsedContent))
+			return setImportMessage({
+				msg: 'Contents of the import file are not valid!',
+				type: 'Error'
+			});
 
 		localStorage.setItem('urls', content);
-		setUrls(JSON.parse(content));
+		setUrls(parsedContent);
 
 		setImportMessage({ msg: 'URLs have been imported successfully!', type: 'success' });
 	}
