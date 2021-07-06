@@ -2,7 +2,7 @@ import { SuccessBox, ErrorBox } from './MessageBox';
 
 function GenerateUrl({ saveUrl, importUrls, message, importMessage }) {
 	return (
-		<div className='bg-light-200 dark:bg-dark-200 text-font-black dark:text-font-white lg:px-16 sm:px-8 rounded-t-md w-full px-4 pt-16 text-center transition-colors duration-500'>
+		<div className='bg-light-200 dark:bg-dark-200 text-font-black dark:text-font-white lg:px-16 sm:px-8 rounded-t-md lg:pt-16 w-full px-4 pt-12 text-center transition-colors duration-500'>
 			<h3 className=' lg:text-4xl text-3xl font-semibold'>Generate URLs</h3>
 			<div className=' mt-10 mb-6'>
 				<p className=''>

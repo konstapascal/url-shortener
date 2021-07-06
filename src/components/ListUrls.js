@@ -16,7 +16,7 @@ function ListUrls({ urls, deleteUrl, deleteAllUrls, exportUrls }) {
 	});
 
 	return (
-		<div className='bg-light-200 dark:bg-dark-200 text-font-black rounded-b-md dark:text-font-white sm:px-8 lg:px-16 w-full px-4 pt-4 pb-16 text-center transition-colors duration-500'>
+		<div className='bg-light-200 dark:bg-dark-200 text-font-black rounded-b-md dark:text-font-white sm:px-8 lg:px-16 lg:pb-16 w-full px-4 pt-4 pb-12 text-center transition-colors duration-500'>
 			<h3 className='lg:text-4xl mb-16 text-3xl font-semibold'>Generated URLs List</h3>
 
 			{urls.length !== 0 ? (
@@ -32,7 +32,7 @@ function ListUrls({ urls, deleteUrl, deleteAllUrls, exportUrls }) {
 						);
 					})}
 
-					<div className='flex justify-between'>
+					<div className='md:justify-between flex justify-around'>
 						<button
 							onClick={() => exportUrls()}
 							className='text-font-white dark:bg-blue-600 px-4 py-2 font-medium transition-colors duration-500 bg-blue-500 rounded-md shadow-md'

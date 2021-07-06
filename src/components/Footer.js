@@ -28,7 +28,7 @@ function Footer() {
 						Website
 					</a>
 				</div>
-				<p className='text-font-black dark:text-font-white text-base font-semibold transition-colors duration-500'>
+				<p className='dark:text-gray-400 text-base font-semibold text-gray-400 transition-colors duration-500'>
 					Made by Konstantinos Pascal - {new Date().getFullYear()}
 				</p>
 			</div>
