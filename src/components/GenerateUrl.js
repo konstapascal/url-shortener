@@ -10,7 +10,7 @@ function GenerateUrl({ saveUrl, importUrls, message, importMessage }) {
 					<span className='font-bold'>slug</span> to create a shortened version with the
 					following form:
 				</p>
-				<p className='my-4 text-xl font-semibold'>https://sh.konstapascal.dev/[slug]</p>
+				<p className='my-4 text-xl font-semibold'>sh.konstapascal.dev/[slug]</p>
 			</div>
 
 			<div className='my-10'>
