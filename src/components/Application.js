@@ -15,6 +15,7 @@ const Application = () => {
 	const [urls, setUrls] = useState([]);
 	const [message, setMessage] = useState(undefined);
 	const [importMessage, setImportMessage] = useState(undefined);
+	const [searchTerm, setSearchTerm] = useState('');
 
 	useEffect(() => {
 		if (!localStorage.getItem('urls')) localStorage.setItem('urls', JSON.stringify([]));
@@ -50,6 +51,7 @@ const Application = () => {
 		// set success message, clear fields, if all passes
 		setMessage({ msg: 'URL has been created successfully!', type: 'success' });
 		clearInputValues(urlField, slugField);
+		setSearchTerm('');
 	}
 
 	function deleteUrl(slug) {
@@ -60,6 +62,7 @@ const Application = () => {
 
 		localStorage.setItem('urls', JSON.stringify(filteredUrls));
 		setUrls(filteredUrls);
+		setSearchTerm('');
 	}
 
 	function deleteAllUrls() {
@@ -67,6 +70,7 @@ const Application = () => {
 		setUrls([]);
 
 		toggleModal();
+		setSearchTerm('');
 	}
 
 	function exportUrls() {
@@ -92,6 +96,7 @@ const Application = () => {
 		setUrls(parsedContent);
 
 		setImportMessage({ msg: 'URLs have been imported successfully!', type: 'success' });
+		setSearchTerm('');
 	}
 
 	return (
@@ -108,6 +113,8 @@ const Application = () => {
 					deleteUrl={deleteUrl}
 					deleteAllUrls={deleteAllUrls}
 					exportUrls={exportUrls}
+					searchTerm={searchTerm}
+					setSearchTerm={setSearchTerm}
 				/>
 			</div>
 			<Footer />

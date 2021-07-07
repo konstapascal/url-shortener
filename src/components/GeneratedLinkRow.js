@@ -1,6 +1,6 @@
 function GeneratedLinkRow({ url, slug, deleteUrl }) {
 	return (
-		<div className=' md:flex-row last:mb-0 md:justify-between md:items-center md:mb-10 flex flex-col mb-8 text-left'>
+		<div className=' md:flex-row md:justify-between md:items-center last:mb-0 md:my-10 flex flex-col my-8 text-left'>
 			<div className=' break-all'>
 				<div className='mb-3'>
 					<h3 className=' text-xl font-semibold'>Full URL</h3>
