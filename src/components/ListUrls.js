@@ -29,7 +29,9 @@ function ListUrls({
 		<div className='bg-light-200 dark:bg-dark-200 text-font-black rounded-b-md dark:text-font-white sm:px-8 lg:px-16 lg:pb-16 w-full px-4 pt-4 pb-12 text-center transition-colors duration-500'>
 			<h3 className='lg:text-4xl mb-12 text-3xl font-semibold'>Generated URLs List</h3>
 
-			<UrlsSearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+			{urls.length !== 0 && (
+				<UrlsSearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+			)}
 
 			{filteredUrls.length === 0 && searchTerm !== '' && (
 				<NoSearchResultsWarning searchTerm={searchTerm} />
