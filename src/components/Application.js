@@ -13,6 +13,7 @@ import toggleModal from '../lib/toggleModal';
 
 const Application = () => {
 	const [urls, setUrls] = useState([]);
+	const [filteredUrls, setFilteredUrls] = useState([]);
 	const [message, setMessage] = useState(undefined);
 	const [importMessage, setImportMessage] = useState(undefined);
 	const [searchTerm, setSearchTerm] = useState('');
@@ -24,6 +25,13 @@ const Application = () => {
 
 		setUrls(existingUrls);
 	}, []);
+
+	useEffect(() => {
+		if (searchTerm !== '') {
+			const newFilteredUrls = urls.filter(url => url.slug.includes(searchTerm));
+			setFilteredUrls(newFilteredUrls);
+		}
+	}, [searchTerm, urls]);
 
 	function saveUrl() {
 		const urlField = document.querySelector('#url');
@@ -110,6 +118,7 @@ const Application = () => {
 				/>
 				<ListUrls
 					urls={urls}
+					filteredUrls={filteredUrls}
 					deleteUrl={deleteUrl}
 					deleteAllUrls={deleteAllUrls}
 					exportUrls={exportUrls}
