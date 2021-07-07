@@ -3,6 +3,7 @@ import toggleModal from '../lib/toggleModal';
 import GeneratedLinkRow from './GeneratedLinkRow';
 import Modal from './Modal';
 import NoLinksWarning from './NoLinksWarning';
+import UrlsSearchBar from './UrlsSearchBar';
 
 function ListUrls({ urls, deleteUrl, deleteAllUrls, exportUrls }) {
 	useEffect(() => {
@@ -21,6 +22,8 @@ function ListUrls({ urls, deleteUrl, deleteAllUrls, exportUrls }) {
 
 			{urls.length !== 0 ? (
 				<>
+					<UrlsSearchBar />
+
 					{urls.map(url => {
 						return (
 							<GeneratedLinkRow
