@@ -5,6 +5,7 @@ function UrlsSearchBar({ setSearchTerm, searchTerm }) {
 			type='text'
 			placeholder='Search URL'
 			id='search'
+			value={searchTerm}
 			onChange={e => setSearchTerm(e.target.value)}
 		/>
 	);
