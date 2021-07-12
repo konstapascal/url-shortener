@@ -12,19 +12,11 @@ import isValidFile from '../lib/isValidFile';
 import toggleModal from '../lib/toggleModal';
 
 const Application = () => {
-	const [urls, setUrls] = useState([]);
+	const [urls, setUrls] = useState(JSON.parse(localStorage.getItem('urls')) || []);
 	const [filteredUrls, setFilteredUrls] = useState([]);
 	const [message, setMessage] = useState(undefined);
 	const [importMessage, setImportMessage] = useState(undefined);
 	const [searchTerm, setSearchTerm] = useState('');
-
-	useEffect(() => {
-		if (!localStorage.getItem('urls')) localStorage.setItem('urls', JSON.stringify([]));
-
-		const existingUrls = JSON.parse(localStorage.getItem('urls'));
-
-		setUrls(existingUrls);
-	}, []);
 
 	useEffect(() => {
 		if (searchTerm !== '') {
