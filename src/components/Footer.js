@@ -7,25 +7,32 @@ function Footer() {
 				</p>
 				<div className=' text-font-black dark:text-font-white flex justify-center my-6 text-2xl font-semibold transition-colors duration-500'>
 					<a
-						className=' dark:hover:text-blue-500 hover:text-blue-400 hover:underline flex items-center mr-2'
-						href='https://github.com/konstapascal'
-						target='_blank'
-						rel='noopener noreferrer'>
-						Github
-					</a>
-					<a
-						className=' dark:hover:text-blue-500 hover:text-blue-400 hover:underline flex items-center mx-2'
-						href='https://konstapascal.dev'
-						target='_blank'
-						rel='noopener noreferrer'>
-						LinkedIn
-					</a>
-					<a
 						className=' dark:hover:text-blue-500 hover:text-blue-400 hover:underline flex items-center ml-2'
 						href='https://konstapascal.dev'
 						target='_blank'
 						rel='noopener noreferrer'>
 						Website
+					</a>
+					<a
+						className=' dark:hover:text-blue-500 hover:text-blue-400 hover:underline flex items-center mr-2'
+						href='https://github.com/konstapascal'
+						target='_blank'
+						rel='noopener noreferrer'>
+						GitHub
+					</a>
+					<a
+						className=' dark:hover:text-blue-500 hover:text-blue-400 hover:underline flex items-center ml-2'
+						href='https://twitter.com/konstapascal'
+						target='_blank'
+						rel='noopener noreferrer'>
+						Twitter
+					</a>
+					<a
+						className=' dark:hover:text-blue-500 hover:text-blue-400 hover:underline flex items-center mx-2'
+						href='https://www.linkedin.com/in/konstapascal'
+						target='_blank'
+						rel='noopener noreferrer'>
+						LinkedIn
 					</a>
 				</div>
 				<p className='dark:text-gray-400 text-base font-semibold text-gray-400 transition-colors duration-500'>
