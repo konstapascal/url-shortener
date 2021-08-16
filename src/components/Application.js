@@ -19,7 +19,7 @@ const Application = () => {
 	const [searchTerm, setSearchTerm] = useState('');
 
 	useEffect(() => {
-		if (!localStorage.getItem('urls')) localStorage.setItem('urls', '[]');
+		if (!localStorage.getItem('urls')) localStorage.setItem('urls', JSON.stringify([]));
 	}, []);
 
 	useEffect(() => {
