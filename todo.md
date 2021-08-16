@@ -1,1 +1,1 @@
--  small adjustments to paddings, margins, spacings, overall look
+Nothing to do at the moment!
