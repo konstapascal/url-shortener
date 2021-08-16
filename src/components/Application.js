@@ -19,6 +19,10 @@ const Application = () => {
 	const [searchTerm, setSearchTerm] = useState('');
 
 	useEffect(() => {
+		if (!localStorage.getItem('urls')) localStorage.setItem('urls', '[]');
+	}, []);
+
+	useEffect(() => {
 		if (searchTerm !== '') {
 			const newFilteredUrls = urls.filter(url => url.slug.includes(searchTerm));
 			setFilteredUrls(newFilteredUrls);
