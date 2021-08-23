@@ -3,7 +3,7 @@ import { SuccessBox, ErrorBox } from './MessageBox';
 function GenerateUrl({ saveUrl, importUrls, message, importMessage }) {
 	return (
 		<div className='bg-light-200 dark:bg-dark-200 text-font-black dark:text-font-white lg:px-16 sm:px-8 rounded-t-md lg:pt-16 w-full px-4 pt-12 text-center transition-colors duration-500'>
-			<h3 className=' lg:text-4xl text-3xl font-semibold'>Generate URLs</h3>
+			<h3 className=' lg:text-4xl text-3xl font-semibold'>Generate Short URLs</h3>
 			<div className=' mt-10 mb-6'>
 				<p className=''>
 					Provide an <span className='font-bold'>URL</span> and a{' '}
@@ -17,7 +17,7 @@ function GenerateUrl({ saveUrl, importUrls, message, importMessage }) {
 				<label
 					className='dark:text-gray-300 text-md block mb-2 font-semibold text-gray-500 transition-colors duration-500'
 					htmlFor='url'>
-					Full URL
+					URL
 				</label>
 				<input
 					className='bg-light-100 dark:bg-dark-100 dark:border-gray-500 text-font-black dark:text-font-white w-full max-w-md px-3 py-2 leading-tight transition-colors duration-500 border border-gray-300 rounded-md'

@@ -7,7 +7,6 @@ import isValidUrl from '../lib/isValidUrl';
 import isValidSlug from '../lib/isValidSlug';
 import clearInputValues from '../lib/clearInputValues';
 
-import { saveAs } from 'file-saver';
 import isValidFile from '../lib/isValidFile';
 import toggleModal from '../lib/toggleModal';
 
@@ -79,9 +78,21 @@ const Application = () => {
 
 	function exportUrls() {
 		const data = localStorage.getItem('urls');
+		const blob = new Blob([data], { type: 'text/plain' });
 
-		const blob = new Blob([data], { type: 'text/plain;charset=utf-8' });
-		saveAs(blob, 'url-shortener-export.txt');
+		const href = URL.createObjectURL(blob);
+
+		const a = Object.assign(document.createElement('a'), {
+			href,
+			style: 'display: none',
+			download: 'url-shortener-data.txt'
+		});
+
+		document.body.appendChild(a);
+		a.click();
+
+		URL.revokeObjectURL(href);
+		a.remove();
 	}
 
 	async function importUrls(e) {
