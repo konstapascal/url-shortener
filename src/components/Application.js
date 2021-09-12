@@ -116,7 +116,7 @@ const Application = () => {
 
 	return (
 		<>
-			<div className=' dark:border-gray-400 md:my-12 lg:my-16 container flex flex-col w-11/12 max-w-4xl mx-auto my-10 transition-colors duration-500 border-2 rounded-md shadow-lg'>
+			<div className=' dark:border-gray-400 md:my-12 lg:my-16 dark:border-opacity-10 container flex flex-col w-11/12 max-w-4xl mx-auto my-10 transition-all duration-500 border-2 rounded-md shadow-lg'>
 				<GenerateUrl
 					saveUrl={saveUrl}
 					importUrls={importUrls}
