@@ -63,7 +63,7 @@ function GenerateUrl({ saveUrl, importUrls, message, importMessage }) {
 				{/* hidden element, only functionality needed */}
 				<input
 					id='fileInput'
-					className='hidden'
+					className='sr-only'
 					onClick={e => (e.target.value = '')}
 					onChange={e => importUrls(e)}
 					type='file'
