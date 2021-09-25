@@ -1,3 +1,4 @@
+import ImportButton from './ImportButton';
 import { SuccessBox, ErrorBox } from './MessageBox';
 
 function GenerateUrl({ saveUrl, importUrls, message, importMessage }) {
@@ -54,21 +55,7 @@ function GenerateUrl({ saveUrl, importUrls, message, importMessage }) {
 					You may also <span className='font-bold'>import URLs</span> generated and exported
 					from before:
 				</p>
-				<button
-					onClick={() => document.querySelector('#fileInput').click()}
-					className='text-font-white dark:bg-blue-600 px-4 py-2 font-medium transition-colors duration-500 bg-blue-500 rounded-md shadow-md'
-					type='button'>
-					Import URLs
-				</button>
-				{/* hidden element, only functionality needed */}
-				<input
-					id='fileInput'
-					className='sr-only'
-					onClick={e => (e.target.value = '')}
-					onChange={e => importUrls(e)}
-					type='file'
-					accept={'text/plain'}
-				/>
+				<ImportButton importUrls={importUrls} />
 			</div>
 
 			{importMessage && importMessage.type === 'success' ? (

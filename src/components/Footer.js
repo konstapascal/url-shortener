@@ -7,21 +7,21 @@ function Footer() {
 				</p>
 				<div className=' text-font-black dark:text-font-white flex justify-center my-6 text-2xl font-semibold transition-colors duration-500'>
 					<a
-						className=' dark:hover:text-blue-500 hover:text-blue-400 hover:underline flex items-center mr-2'
+						className=' dark:hover:text-blue-500 hover:text-blue-400 hover:underline flex items-center mr-3'
 						href='https://konstapascal.dev'
 						target='_blank'
 						rel='noopener noreferrer'>
 						Website
 					</a>
 					<a
-						className=' dark:hover:text-blue-500 hover:text-blue-400 hover:underline flex items-center mr-2'
+						className=' dark:hover:text-blue-500 hover:text-blue-400 hover:underline flex items-center mr-3'
 						href='https://github.com/konstapascal'
 						target='_blank'
 						rel='noopener noreferrer'>
 						GitHub
 					</a>
 					<a
-						className=' dark:hover:text-blue-500 hover:text-blue-400 hover:underline flex items-center mr-2'
+						className=' dark:hover:text-blue-500 hover:text-blue-400 hover:underline flex items-center mr-3'
 						href='https://twitter.com/konstapascal'
 						target='_blank'
 						rel='noopener noreferrer'>

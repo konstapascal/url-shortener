@@ -11,10 +11,10 @@ function handleClick() {
 
 const Navbar = () => {
 	return (
-		<nav className='bg-light-200 dark:bg-dark-200  sticky flex items-center h-24 transition-colors duration-500'>
+		<nav className='bg-light-200 dark:bg-dark-200 sticky flex items-center h-24 transition-colors duration-500'>
 			<ul className=' container flex items-center justify-between w-11/12 max-w-4xl'>
 				<li className=' dark:text-font-white text-font-black lg:text-3xl text-2xl font-semibold transition-colors duration-500'>
-					<Link to='/' className=' flex items-center'>
+					<Link to='/' className=' flex items-center justify-center'>
 						<svg
 							aria-hidden='true'
 							focusable='false'
